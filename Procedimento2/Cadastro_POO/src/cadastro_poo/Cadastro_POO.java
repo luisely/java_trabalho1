@@ -12,6 +12,7 @@ public class Cadastro_POO {
         PessoaFisicaRepo repoFisica = new PessoaFisicaRepo();
         PessoaJuridicaRepo repoJuridica = new PessoaJuridicaRepo();
         String tipo,prefixoP, prefixoJ;
+        
         int id;
 
         int opcao;
@@ -34,21 +35,21 @@ public class Cadastro_POO {
                     tipo = scanner.next().toLowerCase();
                     if ("f".equals(tipo)) {
                         System.out.println("Informe o nome:");
-                        String nome = scanner.next();
+                        String nomePF = scanner.next();
                         System.out.println("Informe o CPF:");
                         String cpf = scanner.next();
                         System.out.println("Informe a idade:");
                         int idade = scanner.nextInt();
-                        PessoaFisica pessoaFisica = new PessoaFisica(repoFisica.nextId(),nome, cpf, idade);
+                        PessoaFisica pessoaFisica = new PessoaFisica(repoFisica.nextId(),nomePF, cpf, idade);
                         repoFisica.inserir(pessoaFisica);
                         System.out.println("Pessoa física incluída com sucesso.");
 
                     } else if ("j".equals(tipo)) {
                         System.out.println("Informe o nome:");
-                        String nome = scanner.next();
+                        String nomePJ = scanner.next();
                         System.out.println("Informe o CNPJ:");
                         String cnpj = scanner.next();
-                        PessoaJuridica pessoaJuridica = new PessoaJuridica(repoJuridica.nextId(),nome, cnpj);
+                        PessoaJuridica pessoaJuridica = new PessoaJuridica(repoJuridica.nextId(),nomePJ, cnpj);
                         repoJuridica.inserir(pessoaJuridica);
                         System.out.println("Pessoa jurídica incluída com sucesso.");
                     } else {
@@ -100,6 +101,12 @@ public class Cadastro_POO {
                          System.out.println("Digite o ID: ");
                          id = scanner.nextInt();
                          repoFisica.excluir(id);
+                     } else if ("j".equals(tipo)) {
+                         System.out.println("Digite o ID: ");
+                         id = scanner.nextInt();
+                         repoJuridica.excluir(id);
+                     } else {
+                        System.out.println("Opção inválida.");
                      }
                     break;
                 case 4:
