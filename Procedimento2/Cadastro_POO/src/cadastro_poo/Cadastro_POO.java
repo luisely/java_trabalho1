@@ -154,10 +154,10 @@ public class Cadastro_POO {
                     break;
                 case 7:
                     
-                    System.out.println("Escolha o nome para salvar os dados Pessoas Fisicos");
+                    System.out.println("Digite o nome do arquivo para carregar dados Pessoas Fisicos");
                     prefixoP = scanner.next().toLowerCase();
                     
-                    System.out.println("Escolha o nome para salvar os dados Pessoas Juridicas");
+                    System.out.println("Digite o nome do arquivo para carregar dados Pessoas Juridicas");
                     prefixoJ = scanner.next().toLowerCase();
                     try {
                         repoFisica.recuperar(prefixoP + "_fisicas.bin");
