@@ -110,9 +110,28 @@ public class Cadastro_POO {
                      }
                     break;
                 case 4:
-                    System.out.println("Escolha o ID");
-                    id = scanner.nextInt();
-                    repoFisica.obter(id).exibir();
+                    System.out.println("Escolha o tipo (F - Pessoa Física, J - Pessoa Jurídica):");
+                    tipo = scanner.next().toLowerCase();
+                    if ("f".equals(tipo)) {
+                        if(repoFisica.nextId() == 1) {
+                            System.out.println("Nenhum registro encontrado, favor inserir ou recuperar para conseguir realizar uma busca.");
+                            break;
+                        }
+                        System.out.println("Escolha o ID");
+                        id = scanner.nextInt();
+                        repoFisica.obter(id).exibir();
+                     } else if ("j".equals(tipo)) {
+                         if(repoJuridica.nextId() == 1) {
+                            System.out.println("Nenhum registro encontrado, favor inserir ou recuperar para conseguir realizar uma busca.");
+                            break;
+                        }
+                         System.out.println("Escolha o ID");
+                        id = scanner.nextInt();
+                        repoJuridica.obter(id).exibir();
+                     } else {
+                        System.out.println("Opção inválida.");
+                     }
+
                     
                     System.out.println("\nPressione Enter para mostrar o menu novamente...");
                     scanner.nextLine();
