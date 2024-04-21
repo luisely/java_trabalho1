@@ -54,8 +54,11 @@ public class PessoaJuridicaRepo implements Serializable {
     }
     
     public int nextId() {
-        PessoaJuridica ultimoElemento = listaPessoasJuridicas.get(listaPessoasJuridicas.size() - 1); // Obtém o último elemento da lista
-        System.out.println(ultimoElemento.getId() + 1);
-        return ultimoElemento.getId() + 1; // Obtém o ID do último elemento
+        if(listaPessoasJuridicas.size() == 0) {
+            return 1;
+        }
+        
+        PessoaJuridica ultimoElemento = listaPessoasJuridicas.get(listaPessoasJuridicas.size() - 1); // ObtÃ©m o Ãºltimo elemento da lista
+        return ultimoElemento.getId() + 1; // ObtÃ©m o ID do Ãºltimo elemento
     }
 }
